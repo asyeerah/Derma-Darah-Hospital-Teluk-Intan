@@ -5,39 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kuiz Derma Darah + Sijil A4 Landscape</title>
   <style>
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0f172a;color:#f1f5f9;line-height:1.6}
-    .container{max-width:900px;margin:0 auto;padding:20px}
-    .card{background:#1e293b;padding:20px;border-radius:12px}
-    h1{margin-top:0}
+    body {
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:#0f172a;
+      color:#f1f5f9;
+      line-height:1.6
+    }
+    .container {
+      max-width:900px;
+      margin:0 auto;
+      padding:20px
+    }
+    .card {
+      background:#1e293b;
+      padding:20px;
+      border-radius:12px
+    }
+    h1{margin-top:0;font-size:clamp(20px,5vw,32px)}
     .question{margin-bottom:20px;padding:14px;border:1px solid #334155;border-radius:8px}
-    .q-title{font-weight:bold;margin-bottom:10px}
-    .option{display:block;margin-bottom:6px;cursor:pointer}
+    .q-title{font-weight:bold;margin-bottom:10px;font-size:clamp(16px,4vw,20px)}
     .feedback{margin-top:8px;font-size:14px}
     .correct{color:#22c55e}
     .incorrect{color:#ef4444}
-    button{padding:10px 16px;border:none;border-radius:8px;font-weight:bold;cursor:pointer}
+    button {
+      padding:12px 18px;
+      border:none;
+      border-radius:8px;
+      font-weight:bold;
+      cursor:pointer;
+      font-size:clamp(14px,4vw,18px);
+      flex:1
+    }
     .primary{background:#22d3ee;color:#0f172a}
     .secondary{background:#334155;color:#f1f5f9}
     .hidden{display:none}
-    input[type="text"]{width:100%;padding:10px;border-radius:6px;border:1px solid #334155;margin-bottom:10px;background:#0b1220;color:#f1f5f9}
-    label.option{display:flex;align-items:center;gap:8px;padding:8px;border-radius:6px;border:1px solid #24303b;background:#0b1320}
+    input[type="text"]{
+      width:100%;
+      padding:12px;
+      border-radius:6px;
+      border:1px solid #334155;
+      margin-bottom:10px;
+      background:#0b1220;
+      color:#f1f5f9;
+      font-size:clamp(14px,4vw,18px)
+    }
+    label.option {
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:10px;
+      border-radius:6px;
+      border:1px solid #24303b;
+      background:#0b1320;
+      font-size:clamp(14px,4vw,18px)
+    }
     label.option input{margin-right:8px}
 
-    /* sijil styling */
-    #certificate{
-      background:#fff;color:#000;text-align:center;padding:60px;border:10px solid gold;border-radius:20px;
-      width:100%;max-width:1123px;aspect-ratio:297/210;
-      box-sizing:border-box;box-shadow:0 0 20px rgba(0,0,0,0.3);margin:20px auto;
+    /* Certificate styling */
+    #certificate {
+      background:#fff;
+      color:#000;
+      text-align:center;
+      padding:40px 20px;
+      border:8px solid gold;
+      border-radius:20px;
+      width:100%;
+      max-width:1123px;
+      aspect-ratio:297/210;
+      box-sizing:border-box;
+      box-shadow:0 0 20px rgba(0,0,0,0.3);
+      margin:20px auto
     }
-    #certificate h2{font-size:48px;margin-bottom:10px}
-    #certificate h4{font-size:28px;margin-top:0;margin-bottom:40px;font-style:italic}
-    #certificate p{font-size:22px;margin:12px 0}
-    #certificate .name{font-size:38px;font-weight:bold;margin:30px 0}
-    #certificate h3{font-size:30px;margin:20px 0}
+    #certificate h2{font-size:clamp(22px,6vw,48px);margin-bottom:10px}
+    #certificate h4{font-size:clamp(18px,4vw,28px);margin-top:0;margin-bottom:30px;font-style:italic}
+    #certificate p{font-size:clamp(14px,4vw,22px);margin:12px 0}
+    #certificate .name{font-size:clamp(20px,6vw,38px);font-weight:bold;margin:20px 0}
+    #certificate h3{font-size:clamp(18px,5vw,30px);margin:20px 0}
 
     /* Print settings */
     @page{size:A4 landscape;margin:0}
-    @media print{
+    @media print {
       body{background:none}
       button{display:none}
       .card{display:none}
@@ -63,7 +111,7 @@
 
       <section id="step-quiz" class="hidden">
         <div id="questionList"></div>
-        <div style="display:flex;gap:8px;margin-top:10px">
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
           <button class="secondary" id="btnReset">Set Semula</button>
           <button class="primary" id="btnSubmit">Hantar Jawapan</button>
         </div>
@@ -71,7 +119,7 @@
 
       <section id="step-result" class="hidden">
         <h2>Keputusan</h2>
-        <div id="scorePct" style="font-size:28px;font-weight:bold"></div>
+        <div id="scorePct" style="font-size:clamp(18px,5vw,28px);font-weight:bold"></div>
         <div id="scoreDetail" style="margin-bottom:10px"></div>
         <button class="primary" id="btnShowCert">Lihat Sijil</button>
       </section>
